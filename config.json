@@ -1,0 +1,8 @@
+{
+  "tvMAC": null,
+  "apps":[
+    {"name": "netflix", "id": "netflix"},
+    {"name": "youtube", "id": "youtube.leanback.v4"},
+    {"name": "livetv", "id": "com.webos.app.livetv"}
+  ]
+}

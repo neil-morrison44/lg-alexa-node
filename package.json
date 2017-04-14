@@ -1,0 +1,32 @@
+{
+  "name": "lg-alexa-node",
+  "version": "1.0.0",
+  "description": "JS only bridge between LG TV and alexa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://neil-morrison44@github.com/neil-morrison44/lg-alexa-node.git"
+  },
+  "keywords": [
+    "lg",
+    "alexa",
+    "tv",
+    "webos",
+    "echo"
+  ],
+  "author": "Neil Morrison",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neil-morrison44/lg-alexa-node/issues"
+  },
+  "homepage": "https://github.com/neil-morrison44/lg-alexa-node#readme",
+  "dependencies": {
+    "fauxmojs": "^1.0.1",
+    "ip": "^1.1.5",
+    "lgtv2": "^1.3.0",
+    "node-wol": "^0.1.1"
+  }
+}
