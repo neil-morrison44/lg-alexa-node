@@ -1,7 +1,6 @@
 "use strict";
 
 const START_PORT = 11000;
-
 const ip = require("ip");
 const FauxMo = require("fauxmojs");
 const config = require("./config.json");
@@ -18,9 +17,27 @@ function turnOn(onComplete) {
       console.log("failed to turn on TV");
     } else {
       if (onComplete) {
-        onComplete();
+        whenActive(onComplete);
       }
     }
+  });
+}
+
+function isTVOn(){
+  const lgtv = require("lgtv2")({url: 'ws://lgwebostv:3000'});
+}
+
+function whenActive(doFunc){
+  const lgtv = require("lgtv2")({
+    url: 'ws://lgwebostv:3000'
+  });
+  lgtv.on("connect", function() {
+    lgtv.subscribe("ssap://com.webos.applicationManager/getForegroundAppInfo", function(err, res){
+      if (res.appId.length > 0){
+        doFunc();
+        lgtv.disconnect();
+      }
+    });
   });
 }
 
@@ -29,7 +46,7 @@ function turnOff() {
     url: 'ws://lgwebostv:3000'
   });
 
-  lgtv.on('connect', function() {
+  lgtv.on("connect", function() {
     console.log('connected');
     lgtv.request('ssap://system/turnOff', function(err, res) {
       lgtv.disconnect();
@@ -44,7 +61,7 @@ function launchApp(appId) {
   });
 
   lgtv.on('connect', function() {
-    console.log('connected');
+    console.log("launching app", appId);
     lgtv.request('ssap://system.launcher/launch', {
       id: appId
     }, function(err, res) {

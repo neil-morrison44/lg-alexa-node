@@ -3,6 +3,8 @@
   "apps":[
     {"name": "netflix", "id": "netflix"},
     {"name": "youtube", "id": "youtube.leanback.v4"},
-    {"name": "livetv", "id": "com.webos.app.livetv"}
+    {"name": "livetv", "id": "com.webos.app.livetv"},
+    {"name": "prime video", "id":"lovefilm"},
+    {"name": "iplayer", "id":"bbc.iplayer.3.0"}
   ]
 }
